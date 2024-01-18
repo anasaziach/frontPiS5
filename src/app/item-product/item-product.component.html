@@ -1,0 +1,19 @@
+<div class="card itemx">
+    <h5 class="card-title text-center" [ngStyle]="{'color':produit.disponibility?'green':'red'}">{{produit.title}}</h5>
+    <img src={{produit.imgUrl}} class="card-img-top" alt={{produit.title}}/>
+    
+      <div class="card-body">
+        <p class="card-text"><b>Id: </b>{{produit.id}}</p>      
+      <p class="card-text"><b>Prix: </b>{{produit.price}} $</p>
+      <p class="card-text"><b>description: </b>{{produit.description}}</p>
+      <p class="card-text"><b>rate: </b>{{produit.rate}}</p>
+      </div>
+      
+
+      <div class="button-group mb-3 ms-2">
+        <button type="button" class="btn btn-secondary rounded-pill" [routerLink]="'/produit/'+produit.id" >Détails</button>
+      <!-- <button *ngIf="produit.disponibility" type="button" class="btn btn-secondary rounded-pill" (click)="addNewItem()">Acheter</button> -->
+      </div>
+      
+    </div>
+  <br/><br/>

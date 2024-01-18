@@ -1,0 +1,19 @@
+<h1 class="text-center">Voici la liste des produits</h1>
+<select class="form-select" aria-label="Sélectionner suivant une catégorie" #cat (change)="filter(cat.value)">
+    <option selected>Sélectionnez une catégorie</option>
+    <option *ngFor="let p of categories" [value]="p">{{p}}</option>
+  </select>
+
+  <div *ngIf="products.length==0 && categories.length==0" class="text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  
+
+<br/><br/><br/>
+    <div class="d-flex align-content-start  flex-wrap justify-content-around">
+    <app-item-product *ngFor="let p of products" [produit]="p"></app-item-product>
+</div>
+
+

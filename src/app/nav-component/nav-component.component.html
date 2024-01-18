@@ -1,0 +1,92 @@
+<!-- nav here d-flex justify-content-between -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+  <a class="navbar-brand">
+    <img id="logo" [src]="logo" alt="logo" />
+    MyStore
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class=" collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/produits"><i>Catalogue</i></a>
+      <a class="nav-item nav-link" routerLink="/panier"><i>Panier</i></a>
+    </div>
+  </div>
+  <div style="display: flex;align-items: center">
+    <a class="nav-item nav-link" routerLink="/addProduit" style="margin-right: 20px;" *ngIf="role=='admin'"><i>add Stock</i></a>
+    <div class="me-5 dropdown">
+      <img id="navbarDropdown" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" role="button"
+        data-bs-toggle="dropdown" />
+      <p>{{name}}</p>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" routerLink="login" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- Footer -->
+<br />
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Links  -->
+  <section class="pt-1">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3">MyStore</i>
+          </h6>
+          <p>
+            Entreprise commerciale des produits métier
+          </p>
+        </div>
+        <!-- Grid column -->
+
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Liens utiles
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">FAQ</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Politique de prix</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Confidentialité</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Nos coordonnées</h6>
+          <p><i class="fas fa-home me-3">UM5, Agdal avenue Ibn Sina, Rabat </i></p>
+          <p>
+            <!-- <i class="fas fa-envelope me-3">entreprise@produit.com</i> -->
+          </p>
+          <p><i class="fas fa-phone me-3">+212 00 00 00 00</i></p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    MyStore © 2023 Copyright
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
