@@ -1,19 +1,26 @@
-<div class="card itemx">
-    <h5 class="card-title text-center" [ngStyle]="{'color':produit.disponibility?'green':'red'}">{{produit.title}}</h5>
-    <img src={{produit.imgUrl}} class="card-img-top" alt={{produit.title}}/>
-    
-      <div class="card-body">
-        <p class="card-text"><b>Id: </b>{{produit.id}}</p>      
-      <p class="card-text"><b>Prix: </b>{{produit.price}} $</p>
-      <p class="card-text"><b>description: </b>{{produit.description}}</p>
-      <p class="card-text"><b>rate: </b>{{produit.rate}}</p>
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+      <div class="col-md-10">
+          <div class="row p-2 bg-white border rounded">
+              <div class="col-md-3 mt-1" style="height: 20% !important;"><img class="img-fluid img-responsive rounded product-image" src={{produit.imgUrl}}></div>
+              <div class="col-md-6 mt-1">
+                  <h5>{{produit.title}}</h5>
+                  <div class="d-flex flex-row" style="margin-bottom: 10px;">
+                      <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span style="color: gray; font-size: 14px;">{{produit.category}}</span>
+                  </div>
+                  <!-- <h6 style="margin-bottom: 0 !important;font-size: 12px;">Details</h6><hr> -->
+                  <div class="mt-1 mb-1 spec-1" style="width: 400px"><span>{{produit.description}}</span></div>
+                  <p *ngIf="!produit.availability" [ngStyle]="{'color':'red'}" class="availability">{{availability}}</p>
+                  <p *ngIf="produit.availability" [ngStyle]="{'color':'green'}" class="availability">{{availability}}</p>
+              </div>
+              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                  <div class="d-flex flex-row align-items-center">
+                      <h4 class="mr-1">${{produit.price}}</h4>
+                  </div>
+                  <h6 class="text-success">Free shipping</h6>
+                  <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button" [routerLink]="'/produit/'+produit.id">Details</button></div>
+              </div>
+          </div>
       </div>
-      
-
-      <div class="button-group mb-3 ms-2">
-        <button type="button" class="btn btn-secondary rounded-pill" [routerLink]="'/produit/'+produit.id" >Détails</button>
-      <!-- <button *ngIf="produit.disponibility" type="button" class="btn btn-secondary rounded-pill" (click)="addNewItem()">Acheter</button> -->
-      </div>
-      
-    </div>
-  <br/><br/>
+  </div>
+</div>

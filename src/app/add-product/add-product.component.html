@@ -16,7 +16,11 @@
       <input type="checkbox" id="disponibility" name="disponibility" [(ngModel)]="product.disponibility">
       
       <label for="category">Category:</label>
-      <input type="text" id="category" name="category" [(ngModel)]="product.category" required>
+      <!-- <input type="text" id="category" name="category" [(ngModel)]="product.category" required> -->
+      <select class="form-select" aria-label="Sélectionner suivant une catégorie" #cat name="category" [(ngModel)]="product.category">
+        <option selected>Sélectionnez une catégorie</option>
+        <option *ngFor="let p of categories" [value]="p">{{p}}</option>
+      </select>
       
       <label for="imgUrl">Image URL:</label>
       <input type="text" id="imgUrl" name="imgUrl" [(ngModel)]="product.imgUrl" required>

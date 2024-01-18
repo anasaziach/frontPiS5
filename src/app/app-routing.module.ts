@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 const appRoutes:Routes=[
   {
     path:"",component:NavComponentComponent,
-  // canActivateChild:[HomeProtectionGuard],
+  canActivateChild:[HomeProtectionGuard],
   children:[
     {path:"home",component:HomeComponent},
     {

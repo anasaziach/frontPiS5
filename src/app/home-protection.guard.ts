@@ -11,7 +11,7 @@ export class HomeProtectionGuard implements CanActivateChild {
   canActivateChild(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean{
-      if(!this.lis.logedStatus()){
+      if(!localStorage.getItem("id")){
         this.router.navigateByUrl("login");
         return false;
       }

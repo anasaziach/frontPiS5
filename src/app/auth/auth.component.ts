@@ -25,7 +25,7 @@ register(userForm:NgForm):void{
         document.cookie="loged=true"
         localStorage.setItem("id",res.id)
         localStorage.setItem("role",res.role)
-        localStorage.setItem("user",res.userName)
+        localStorage.setItem("name",res.userName)
         this.errF=false
         this.router.navigateByUrl("produits");
     },

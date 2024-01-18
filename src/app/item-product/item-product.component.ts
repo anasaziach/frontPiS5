@@ -10,11 +10,12 @@ import { PanierDSService } from '../services/panier-ds.service';
 })
 export class ItemProductComponent implements OnInit {
   constructor(private pdss: PanierDSService){}
+  availability:String="disponible";
   ngOnInit(): void {
+    if(!this.produit.availability) this.availability="pas en stock!"
   }
 
   @Input() produit!:Product;
-  // @Output() productSelected = new EventEmitter<Product>();
 
   addNewItem() {
     const idString = localStorage.getItem("id");

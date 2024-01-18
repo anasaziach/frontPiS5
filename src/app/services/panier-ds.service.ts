@@ -14,9 +14,6 @@ export class PanierDSService {
 
   add(iduser:number|null, idProduct:number){
     if(iduser==null) iduser=20;
-    // const headers = new HttpHeaders()
-    //             .set('Cookie', iduser.toString());
-    //             console.log(`http://34.116.154.163/cart?productId=`+idProduct+`&quantity=`+1)
     return this.http.get("http://34.116.154.163/cart/addProductToCart/"+iduser+"/"+idProduct+"/1")
   }
   getCart(iduser:number|null){
@@ -24,9 +21,6 @@ export class PanierDSService {
   }
 
   changeQuantity(id:Number,n:Number):void{
-    // let dp:any= this.panier.get(id);
-    // dp.q=n;
-    // this.panier.set(id,dp);
   }
 
   getAll(){

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
   <a class="navbar-brand">
     <img id="logo" [src]="logo" alt="logo" />
-    MyStore
+    EmiShop
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,9 +17,9 @@
   <div style="display: flex;align-items: center">
     <a class="nav-item nav-link" routerLink="/addProduit" style="margin-right: 20px;" *ngIf="role=='admin'"><i>add Stock</i></a>
     <div class="me-5 dropdown">
-      <img id="navbarDropdown" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" role="button"
+      <img id="navbarDropdown" src="../../assets/image-removebg-preview.png" alt="avatar" role="button"
         data-bs-toggle="dropdown" />
-      <p>{{name}}</p>
+      <p style="margin-left: 5px;">{{name}}</p>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" routerLink="login" (click)="logout()">Logout</a></li>
       </ul>

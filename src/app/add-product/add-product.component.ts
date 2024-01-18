@@ -10,12 +10,19 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent {
   product: Product = new Product(0,"",0,true,"","","","",0);
+  
+  categories: String[] = []
 
   constructor(
     private suplyService : SupplyServiceService,
-    private router: Router
+    private router: Router,
+    private supplyService: SupplyServiceService
   ){
-
+    this.supplyService.getCategories().subscribe(
+      (response: String[]) => {
+        this.categories = response;
+        console.log(response)
+      });
   }
   createProduct() {
     // Logic to handle the creation of a new product (e.g., send data to backend)
