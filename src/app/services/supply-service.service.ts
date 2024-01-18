@@ -7,6 +7,8 @@ import Product from '../domaine/Product';
 })
 export class SupplyServiceService {
 
+  
+
   constructor(private http: HttpClient) { }
   
   

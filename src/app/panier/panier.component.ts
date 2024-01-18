@@ -5,6 +5,8 @@ import Product from '../domaine/Product';
 import { SupplyServiceService } from '../services/supply-service.service';
 import ProduitPanier from '../domaine/ProduitPanier';
 import { elementAt } from 'rxjs';
+import Order from '../domaine/Order';
+import Orders from '../domaine/Orders';
 
 @Component({
   selector: 'app-panier',
@@ -20,6 +22,7 @@ constructor(
   ){}
   produits:ProduitPanier[]=[];
   produitsAfterTraitement:ProduitPanier[]=[];
+  produitAchte:Order[]=[];
   produitAchtes:ProduitPanier[]=[];
   Ids:number[]=[];
 
@@ -38,14 +41,6 @@ constructor(
       console.log(this.produits)
       this.produits.map((element)=>{
         element.subTotal = element.quantity*element.product.price;
-        // const storedCartItem = localStorage.getItem('cartItem');
-        // if (storedCartItem) {
-        //   const parsedCartItem = JSON.parse(storedCartItem);
-        //   localStorage.removeItem('cartItem')
-        //   quantity += parsedCartItem.quantity +1;
-        // } else {
-        //   console.log('No cart item found in localStorage.');
-        // }
       })
     })
   }
@@ -87,18 +82,14 @@ constructor(
     }
   }
   deleteAction() {
-    throw new Error('Method not implemented.');
+    const idString = localStorage.getItem("id");
+    const id = idString ? parseInt(idString) : null;
+    this.pdss.deleteCart(id).subscribe()
   }
-
-  qChange(id:String,x:String):void{
-    this.pdss.changeQuantity(Number(id),Number(x));
-  }
-  // getAll(){
-    
-    
-  // }
 
 buyAction():void{
+  const idString = localStorage.getItem("id");
+  const id = idString ? parseInt(idString) : null;
   this.produitAchtes = this.produits;
   this.produits=[]
 }

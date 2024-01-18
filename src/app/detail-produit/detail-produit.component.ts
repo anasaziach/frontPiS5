@@ -35,18 +35,8 @@ export class DetailProduitComponent implements OnInit{
     const idString = localStorage.getItem("id");
     // idd is the id of the user
     const idUser = idString ? parseInt(idString) : null;
-    var quantity = 1;
-    if (localStorage.getItem(this.id.toString())) {
-      const storedValue = localStorage.getItem(this.id.toString());
-      const incrementedValue = parseInt(storedValue!.toString(), 10) + 1;
-      localStorage.setItem(this.id.toString(), incrementedValue.toString());
-    } else {
-      console.log('No cart item found in localStorage.');
-    }
     this.pdss.add(idUser,this.id)
     .subscribe((res)=>{
-      const cartItem = { idProduct: this.id, quantity: quantity };
-      localStorage.setItem('cartItem', JSON.stringify(cartItem));
     });
   }
 }

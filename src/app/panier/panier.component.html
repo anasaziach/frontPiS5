@@ -7,6 +7,7 @@
       <th scope="col">Prix unitaire</th>
       <th scope="col">Quantité</th>
       <th scope="col">Prix total</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +15,9 @@
       <th scope="row">{{ pr.product.id }}</th>
       <td>{{ pr.product.productName }}</td>
       <td>{{ pr.product.price }}</td>
-      <td><input [id]="pr.product.id" min="1" max="100" type="number" [value]="pr.quantity" /></td>
+      <td>{{pr.quantity}}</td>
       <td>{{pr.subTotal}}</td>
+      <td>en cours</td>
     </tr>  
   </tbody>
 </table>
@@ -23,6 +25,7 @@
 <div style="display: flex;justify-content: right;align-items: center;margin-top: 10px;">
   <h2 style="position: absolute;left: 0 !important;">Mon panier</h2>
   <button type="submit" (click)="buyAction()" id="buyBtn">Buy</button>
+  <button type="submit" (click)="deleteAction()" id="DeleteBtn">delete</button>
 </div>
 <hr>
 <table class="table" style="margin-top: 20px;">
